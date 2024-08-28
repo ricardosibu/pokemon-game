@@ -15,11 +15,9 @@ export const usePokemonGame = () => {
     return pokemonOptions.value[randomIndex]
   })
 
-  const isloading = computed(() => pokemons.value.length === 0)
-
   const getPokemon = async (): Promise<Pokemon[]> => {
     const response: Pokemon[] = await getAllPokemon()
-    const pokemonArray = response.map((pokemon) => {
+    const pokemonArray: any = response.map((pokemon) => {
       const urlParts = pokemon.url.split('/')
       const id = urlParts.at(-2) ?? 0
 
